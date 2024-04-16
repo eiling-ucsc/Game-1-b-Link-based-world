@@ -1,0 +1,178 @@
+{
+    "Title": "Through the forest",
+    "Credits": "Created by Eion Ling (eiling@ucsc.edu).",
+    "InitialLocation": "Dirt Road",
+    "Locations": {
+        "Dirt Road": {
+            "Body": "It's a dusty old dirt road leading to a forest in the distance. \nThere's plains of wildgrass on the sides...",
+            "Choices": [
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Onwards!",
+                    "Target": "Forest"
+                },
+                {
+                    "HasDependency": "bearChasing",
+                    "Text": "RUN!",
+                    "Target": "Neutral Ending"
+                },
+                {
+                    "HasDependency": "bearChasing",
+                    "Text": "Stop running.",
+                    "Target": "Bad Ending 2"
+                }
+            ]
+        },
+        "Forest": {
+            "Body": "You're in the clearing of a light forest now. There's plenty of oak trees and bushes everywhere.",
+            "Choices": [
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Onwards!",
+                    "Target": "Riverside"
+                },
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Backwards!",
+                    "Target": "Dirt Road"
+                },
+                {   
+                    "HasDependency": "bearChasing",
+                    "Text": "RUN!",
+                    "Target": "Dirt Road"
+                },
+                {
+                    "HasDependency": "bearChasing",
+                    "Text": "Stop running.",
+                    "Target": "Bad Ending 2"
+                }
+            ]
+        },
+        "Riverside": {
+            "Body": "Walking along a river... The streams are full of salmon!",
+            "Choices": [
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Onwards!",
+                    "Target": "Bridge"
+                },
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Backwards!",
+                    "Target": "Forest"
+                },
+                {   
+                    "HasDependency": "bearChasing",
+                    "Text": "RUN!",
+                    "Target": "Forest"
+                },
+                {
+                    "HasDependency": "bearChasing",
+                    "Text": "Stop running.",
+                    "Target": "Bad Ending 2"
+                }
+            ]
+        },
+        "Bridge": {
+            "Body": "You've arrived at a wooden bridge. It seems stable enough. Cross it?",
+            "Choices": [
+                {   
+                    "HasDependency": "hasFished",
+                    "Text": "Stop awhile and fish! The stream below is full of wild salmon.",
+                    "Body": "After fishing for a little, you catch a one of the salmon below!",
+                    "Target": "Bridge"
+                },
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Onwards!",
+                    "Target": "Waterfall"
+                },
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Backwards!",
+                    "Target": "Riverside"
+                },
+                {   
+                    "HasDependency": "bearChasing",
+                    "Text": "RUN!",
+                    "Target": "Riverside"
+                },
+                {
+                    "HasDependency": "bearChasing",
+                    "Text": "Stop running.",
+                    "Target": "Bad Ending 2"
+                }
+            ]
+        },
+        "Waterfall": {
+            "Body": "You've arrived at a waterfall! There seems to be a cave behind it.",
+            "Choices": [
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Onwards!",
+                    "Target": "Cave"
+                },
+                {   
+                    "HasDependency": "notBearChasing",
+                    "Text": "Backwards!",
+                    "Target": "Bridge"
+                },
+                {   
+                    "HasDependency": "bearChasing",
+                    "Text": "RUN!",
+                    "Target": "Bridge"
+                },
+                {
+                    "HasDependency": "bearChasing",
+                    "Text": "Stop running.",
+                    "Target": "Bad Ending 2"
+                }
+            ]
+        },
+        "Cave": {
+            "Body": "As you peer within the damp cave, you stumble upon a bear waking up from its nap! It looks very sleepy... What do you do?",
+            "Choices": [
+                {   
+                    "HasDependency": false,
+                    "Text": "Pet it!",
+                    "Target": "Petted Bear"
+                },
+                {   
+                    "HasDependency": false,
+                    "Text": "RUN!",
+                    "Target": "Waterfall"
+                }
+            ]
+        },
+        "Petted Bear": {
+            "Body": "You pet the bear and it seemed to not like it...",
+            "Choices": [
+                {   
+                    "HasDependency": "salmonAcquired",
+                    "Text": "Give it the salmon you caught.", 
+                    "Target": "Good Ending"
+                },
+                {   
+                    "HasDependency": false,
+                    "Text": "...",
+                    "Target": "Bad Ending 1"
+                }
+            ]
+        },
+        "Bear Chasing": {
+            "Body": "The bear is quickly chasing after you in pursuit!"
+        },
+        "Good Ending": {
+            "Body": "The bear ate the salmon and no longer seemed to mind you petting it. Miraculously, it didn't maul you to death and went back to sleep. You return home and tell everyone what happened!"
+        },
+        "Bad Ending 1": {
+            "Body": "The bear is enraged and you are viciously mauled to death by it."
+        },
+        "Bad Ending 2": {
+            "Body": "The bear catches you. You are viciously mauled to death by it."
+        },
+        "Neutral Ending": {
+            "Body": "Panting and scared for your life, you run all the way back to town barely surviving. The bear gives up chase. No more poking in random caves!"
+        }
+    }
+}
